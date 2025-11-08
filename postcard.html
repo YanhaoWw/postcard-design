@@ -1,80 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Postcard Slider</title>
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-  <!-- 你的自定义样式 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postcard</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <style>
-    /* Swiper 容器样式 */
-    .swiper-container {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      margin: 50px auto;
-    }
-
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-  </style>
 </head>
-<body>
-
-  <h2 style="text-align:center;">My Postcard</h2>
-
-  <!-- Swiper -->
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <!-- 正面 -->
-      <div class="swiper-slide">
-        <img src="images/greenwashing.png" alt="Front of Postcard">
-      </div>
-      <!-- 背面 -->
-      <div class="swiper-slide">
-        <img src="images/postcard.png" alt="Back of Postcard">
-      </div>
-    </div>
-
-    <!-- 分页点 -->
-    <div class="swiper-pagination"></div>
-
-    <!-- 左右箭头 -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+<body class="postcard-page fade-in-slide">
+  <div class="postcard-container">
+    <img src="images/postcard.png" alt="Postcard" class="animated-image" />
+    <textarea class="postcard-text" placeholder="Write your message here..."></textarea>
   </div>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper-container', {
-      loop: true, // 循环滑动
-      pagination: { 
-        el: '.swiper-pagination', 
-        clickable: true 
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      spaceBetween: 30, // 每张卡片间距
-      effect: 'slide',  // 滑动效果，可改成 'fade' 或 'cube'
-    });
-  </script>
 </body>
 </html>
