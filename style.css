@@ -8,48 +8,83 @@ body {
   min-height: 100vh;
 }
 
-.postcard {
+.index-page {
+  flex-direction: column;
+  text-align: center;
+}
+
+.index-page h1 {
+  color: #2e7d32;
+  font-size: 2em;
+}
+
+.links a {
+  display: inline-block;
+  margin: 1em;
+  padding: 0.8em 1.5em;
+  border-radius: 10px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.links a:hover {
+  background-color: #c8e6c9;
+}
+
+/* Postcard Page */
+.postcard-container {
   position: relative;
   width: 90%;
   max-width: 900px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
 }
 
-.background {
+.postcard-bg {
   width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.6;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.content {
+.postcard-text {
   position: absolute;
-  top: 15%;
+  top: 30%;
   left: 10%;
-  width: 80%;
-  text-align: center;
-  color: #2e4730;
-}
-
-.content h1 {
-  font-size: 3em;
-  margin-bottom: 0.3em;
-  color: #2e7d32;
-  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
-}
-
-.content p {
+  width: 75%;
+  height: 40%;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.6);
   font-size: 1.2em;
-  color: #333;
-  margin-bottom: 1.5em;
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
 }
 
-.main-image {
-  width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Greenwashing Page */
+.image-container img {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.8s ease forwards;
+}
+
+.zoom-in {
+  transform: scale(0.95);
+  animation: zoomIn 1.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  to { transform: scale(1); }
 }
