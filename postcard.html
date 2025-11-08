@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Postcard</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* 整体容器：上下两页 */
+    .page {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 1s ease-in-out;
+    }
+
+    /* 正面 */
+    .front {
+      background: url('front.png') center/cover no-repeat;
+      position: relative;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* 背面 */
+    .back {
+      background: #fff5ea;
+      flex-direction: column;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    textarea {
+      width: 70%;
+      height: 40%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #ff914d;
+      box-shadow: 0 0 10px rgba(255, 145, 77, 0.4);
+      outline: none;
+    }
+
+    .hint {
+      margin-top: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
-<body class="postcard-page fade-in-slide">
-  <div class="postcard-container">
-    <img src="images/postcard.png" alt="Postcard" class="animated-image" />
-    <textarea class="postcard-text" placeholder="Write your message here..."></textarea>
-  </div>
+<body>
+
+  <!-- 明信片正面 -->
+  <section class="page front">
+  </section>
+
+  <!-- 明信片背面（输入区） -->
+  <section class="page back">
+    <textarea placeholder="Write your message here..."></textarea>
+    <div class="hint">Scroll up to see the postcard front again ↑</div>
+  </section>
+
 </body>
 </html>
