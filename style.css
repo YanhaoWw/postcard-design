@@ -2,15 +2,16 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
   background-color: #f9f7f1;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
-/* === Index Page === */
+/* === Homepage === */
 .index-page {
   flex-direction: column;
   text-align: center;
@@ -25,13 +26,13 @@ body {
 .links a {
   display: inline-block;
   margin: 0.5em;
-  padding: 0.8em 1.5em;
-  border-radius: 12px;
+  padding: 0.8em 1.6em;
+  border-radius: 14px;
   background-color: #e8f5e9;
   color: #2e7d32;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: all 0.4s ease;
 }
 
 .links a:hover {
@@ -46,10 +47,11 @@ body {
   max-width: 900px;
 }
 
-.postcard-img {
+.animated-image {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: floatIn 1.8s ease forwards;
 }
 
 .postcard-text {
@@ -60,57 +62,54 @@ body {
   height: 38%;
   border: none;
   resize: none;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.55);
   font-size: 1.2em;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   outline: none;
+  animation: fadeIn 2s ease 0.6s forwards;
+  opacity: 0;
 }
 
 /* === Greenwashing Page === */
-.image-wrapper img {
+.image-container img {
   width: 90%;
   max-width: 900px;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  animation: floatIn 1.8s ease forwards;
 }
 
 /* === Animations === */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-}
-
-.zoom-in {
-  transform: scale(0.9);
-  animation: zoomIn 1.8s ease forwards;
-  animation-delay: 0.3s;
-}
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUp 1.8s ease-out forwards;
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1.5s ease-out forwards;
-}
-
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
-@keyframes zoomIn {
-  to { transform: scale(1); }
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-@keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
+.fade-in-slide {
+  opacity: 0;
+  animation: fadeSlide 1.8s ease forwards;
 }
 
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
